@@ -93,8 +93,8 @@
         topic.topicId = [NSString stringWithFormat:@"100%zd",i];
         topic.thumbNums = [NSObject fj_randomNumber:1000 to:100000];
         topic.thumb = [NSObject fj_randomNumber:0 to:1];
-        NSString *currentTime = [date stringWithFormat:@"yyyy-MM-dd"];
-        topic.creatTime = currentTime;
+        NSTimeInterval t = date.timeIntervalSince1970 - 1000 *(30-i) - 60;
+        topic.creatTime = [NSString stringWithTimeInterval:t];
         topic.text = [self.contentString substringFromIndex:[NSObject fj_randomNumber:0 to:self.contentString.length-1]];
         topic.user = self.userArray[[NSObject fj_randomNumber:0 to:self.userArray.count-1]];
         //评论
@@ -121,6 +121,23 @@
 
 - (void)rightBarButtonItemClicked{
     NSLog(@"发表说说!!!!!!!!");
+    //演示
+    NSDate *date = [NSDate date];
+    NSTimeInterval t = date.timeIntervalSince1970;
+    FJTopic *topic = [[FJTopic alloc] init];
+    topic.topicId = [NSString stringWithFormat:@"100%zd",self.topicArray.count];
+    topic.thumbNums = [NSObject fj_randomNumber:1000 to:100000];
+    topic.thumb = [NSObject fj_randomNumber:0 to:1];
+    topic.creatTime = [NSString stringWithTimeInterval:t];
+    topic.text = [self.contentString substringFromIndex:[NSObject fj_randomNumber:0 to:self.contentString.length-1]];
+    topic.user = [FJUserManager sharedManager].user;
+    
+    FJTopicFrame *topicFrame = [[FJTopicFrame alloc] init];
+    topicFrame.topic = topic;
+    [self.topicArray insertObject:topic atIndex:0];
+    [self.topicFrameArray insertObject:topicFrame atIndex:0];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - FJInputPanelViewDelegate

@@ -20,6 +20,6 @@
 #import "FJLine.h"
 #import "UIScrollView+UITouch.h"
 #import "FJUserManager.h"
-
+#import "NSString+FJDate.h"
 
 #endif /* Header_h */

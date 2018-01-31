@@ -14,30 +14,31 @@
 @interface FJTopicHeaderView()
 
 /** 头像 */
-@property (nonatomic , strong) UIImageView *avatarView;
+@property (nonatomic,strong) UIImageView *avatarView;
 
 @property (nonatomic,strong) CALayer *avatarLayer;
 
 /** 昵称 */
-@property (nonatomic , strong) YYLabel *nicknameLable;
+@property (nonatomic,strong) YYLabel *nicknameLable;
 
 /** 点赞 */
-@property (nonatomic , strong) UIButton *thumbBtn;
+@property (nonatomic,strong) UIButton *thumbBtn;
 
 /** 更多 */
-@property (nonatomic , strong) UIButton *moreBtn;
+@property (nonatomic,strong) UIButton *moreBtn;
 
 /** 创建时间 */
-@property (nonatomic , strong) YYLabel *createTimeLabel;
+@property (nonatomic,strong) YYLabel *createTimeLabel;
 
 /** 评论 */
-@property (nonatomic , strong) UIButton *reviewButton;
+@property (nonatomic,strong) UIButton *reviewButton;
 
 /** ContentView */
-@property (nonatomic , strong) UIView *contentBaseView;
+@property (nonatomic,strong) UIView *contentBaseView;
 
 /** 文本内容 */
 @property (nonatomic , strong) YYLabel *contentLabel;
+
 
 @end
 

@@ -82,7 +82,7 @@
     if (!_thumbNums) {
         return;
     }
-    self.thumbNumsString = [NSString stringWithFormat:@"%lld万",_thumbNums];
+    self.thumbNumsString = [NSString stringWithFormat:@"%lld 万",_thumbNums];
 }
 
 

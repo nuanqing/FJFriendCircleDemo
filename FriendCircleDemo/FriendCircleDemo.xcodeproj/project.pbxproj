@@ -33,6 +33,7 @@
 		FA1358FB2018790F00554F5A /* NSObject+FJRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358FA2018790F00554F5A /* NSObject+FJRandom.m */; };
 		FA3A2503201EE84B00B146C0 /* FJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A2502201EE84B00B146C0 /* FJUserManager.m */; };
 		FA3A2506202059BF00B146C0 /* FJCommentReplyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A2505202059BF00B146C0 /* FJCommentReplyManager.m */; };
+		FA3A250C202206A600B146C0 /* NSString+FJDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A250B202206A600B146C0 /* NSString+FJDate.m */; };
 		FA59E363201C51EE00613B8F /* FJRegularExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */; };
 		FA59E366201CC14800613B8F /* UIBarButtonItem+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E365201CC14800613B8F /* UIBarButtonItem+EXtension.m */; };
 		FA59E369201CC43F00613B8F /* FJInputPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E368201CC43F00613B8F /* FJInputPanelView.m */; };
@@ -115,6 +116,8 @@
 		FA3A2502201EE84B00B146C0 /* FJUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUserManager.m; sourceTree = "<group>"; };
 		FA3A2504202059BF00B146C0 /* FJCommentReplyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJCommentReplyManager.h; sourceTree = "<group>"; };
 		FA3A2505202059BF00B146C0 /* FJCommentReplyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCommentReplyManager.m; sourceTree = "<group>"; };
+		FA3A250A202206A600B146C0 /* NSString+FJDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FJDate.h"; sourceTree = "<group>"; };
+		FA3A250B202206A600B146C0 /* NSString+FJDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FJDate.m"; sourceTree = "<group>"; };
 		FA59E361201C51EE00613B8F /* FJRegularExpressionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJRegularExpressionManager.h; sourceTree = "<group>"; };
 		FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJRegularExpressionManager.m; sourceTree = "<group>"; };
 		FA59E364201CC14800613B8F /* UIBarButtonItem+EXtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+EXtension.h"; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 				FA59E365201CC14800613B8F /* UIBarButtonItem+EXtension.m */,
 				FA59E36E201DE2CD00613B8F /* UIScrollView+UITouch.h */,
 				FA59E36F201DE2CD00613B8F /* UIScrollView+UITouch.m */,
+				FA3A250A202206A600B146C0 /* NSString+FJDate.h */,
+				FA3A250B202206A600B146C0 /* NSString+FJDate.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -679,6 +684,7 @@
 				FA3A2503201EE84B00B146C0 /* FJUserManager.m in Sources */,
 				FA1358CF20171D2F00554F5A /* FJTopic.m in Sources */,
 				FA1358F220175C5000554F5A /* FJTopicHeaderView.m in Sources */,
+				FA3A250C202206A600B146C0 /* NSString+FJDate.m in Sources */,
 				FA1358F820175CA600554F5A /* FJCommentCell.m in Sources */,
 				FA1358E42017265900554F5A /* GlobeConst.m in Sources */,
 				FA59E370201DE2CD00613B8F /* UIScrollView+UITouch.m in Sources */,
