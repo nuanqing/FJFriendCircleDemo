@@ -1,0 +1,28 @@
+PODS:
+  - IQKeyboardManager (5.0.7)
+  - Masonry (1.1.0)
+  - SDWebImage (4.2.3):
+    - SDWebImage/Core (= 4.2.3)
+  - SDWebImage/Core (4.2.3)
+  - YYKeyboardManager (1.0.1)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - IQKeyboardManager
+  - Masonry
+  - SDWebImage
+  - YYKeyboardManager
+  - YYKit
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
+  YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 8cd30951823ce3d200a3e9479809961f232f631b
+
+COCOAPODS: 1.4.0

@@ -1,0 +1,990 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		62A6F9ED530B9EE09DE2C123 /* libPods-FriendCircleDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC87B6301164CA7654EE31C /* libPods-FriendCircleDemoTests.a */; };
+		AB6B0D7E7086227C770E9F6B /* libPods-FriendCircleDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BAA7FB1F77BF362B36DAF4 /* libPods-FriendCircleDemoUITests.a */; };
+		C2A8F613B8FC2BA2F8DC4730 /* libPods-FriendCircleDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DB2F4E20D3C2F5FD3FCDE7 /* libPods-FriendCircleDemo.a */; };
+		FA1358962015DA5B00554F5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358952015DA5B00554F5A /* AppDelegate.m */; };
+		FA1358992015DA5B00554F5A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358982015DA5B00554F5A /* ViewController.m */; };
+		FA13589C2015DA5B00554F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA13589A2015DA5B00554F5A /* Main.storyboard */; };
+		FA13589E2015DA5B00554F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA13589D2015DA5B00554F5A /* Assets.xcassets */; };
+		FA1358A12015DA5B00554F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA13589F2015DA5B00554F5A /* LaunchScreen.storyboard */; };
+		FA1358A42015DA5B00554F5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358A32015DA5B00554F5A /* main.m */; };
+		FA1358AE2015DA5C00554F5A /* FriendCircleDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358AD2015DA5C00554F5A /* FriendCircleDemoTests.m */; };
+		FA1358B92015DA5C00554F5A /* FriendCircleDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358B82015DA5C00554F5A /* FriendCircleDemoUITests.m */; };
+		FA1358C82015E08B00554F5A /* FJTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358C72015E08B00554F5A /* FJTopicViewController.m */; };
+		FA1358CF20171D2F00554F5A /* FJTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358CE20171D2F00554F5A /* FJTopic.m */; };
+		FA1358D220171D4A00554F5A /* FJComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358D120171D4A00554F5A /* FJComment.m */; };
+		FA1358D520171D6700554F5A /* FJCommentReply.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358D420171D6700554F5A /* FJCommentReply.m */; };
+		FA1358D820171D7A00554F5A /* FJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358D720171D7A00554F5A /* FJUser.m */; };
+		FA1358DB20171D9900554F5A /* FJTopicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358DA20171D9900554F5A /* FJTopicFrame.m */; };
+		FA1358DE20171DB200554F5A /* FJCommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358DD20171DB200554F5A /* FJCommentFrame.m */; };
+		FA1358E42017265900554F5A /* GlobeConst.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358E32017265900554F5A /* GlobeConst.m */; };
+		FA1358EF20172B2900554F5A /* UIFont+FJEXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358EE20172B2900554F5A /* UIFont+FJEXtension.m */; };
+		FA1358F220175C5000554F5A /* FJTopicHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358F120175C5000554F5A /* FJTopicHeaderView.m */; };
+		FA1358F520175C6F00554F5A /* FJTopicFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358F420175C6F00554F5A /* FJTopicFooterView.m */; };
+		FA1358F820175CA600554F5A /* FJCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358F720175CA600554F5A /* FJCommentCell.m */; };
+		FA1358FB2018790F00554F5A /* NSObject+FJRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358FA2018790F00554F5A /* NSObject+FJRandom.m */; };
+		FA3A2503201EE84B00B146C0 /* FJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A2502201EE84B00B146C0 /* FJUserManager.m */; };
+		FA3A2506202059BF00B146C0 /* FJCommentReplyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A2505202059BF00B146C0 /* FJCommentReplyManager.m */; };
+		FA59E363201C51EE00613B8F /* FJRegularExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */; };
+		FA59E366201CC14800613B8F /* UIBarButtonItem+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E365201CC14800613B8F /* UIBarButtonItem+EXtension.m */; };
+		FA59E369201CC43F00613B8F /* FJInputPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E368201CC43F00613B8F /* FJInputPanelView.m */; };
+		FA59E36D201DB86700613B8F /* FJLine.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E36C201DB86600613B8F /* FJLine.m */; };
+		FA59E370201DE2CD00613B8F /* UIScrollView+UITouch.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E36F201DE2CD00613B8F /* UIScrollView+UITouch.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA1358AA2015DA5C00554F5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA1358892015DA5B00554F5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA1358902015DA5B00554F5A;
+			remoteInfo = FriendCircleDemo;
+		};
+		FA1358B52015DA5C00554F5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA1358892015DA5B00554F5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA1358902015DA5B00554F5A;
+			remoteInfo = FriendCircleDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07BAA7FB1F77BF362B36DAF4 /* libPods-FriendCircleDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendCircleDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		12DB2F4E20D3C2F5FD3FCDE7 /* libPods-FriendCircleDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendCircleDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AC87B6301164CA7654EE31C /* libPods-FriendCircleDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendCircleDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D51829E5F12D5235CBFFFF2 /* Pods-FriendCircleDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendCircleDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendCircleDemoTests/Pods-FriendCircleDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64D7D2387A0F9721C5592275 /* Pods-FriendCircleDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendCircleDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendCircleDemo/Pods-FriendCircleDemo.release.xcconfig"; sourceTree = "<group>"; };
+		D61A95F1DE469212F804BF84 /* Pods-FriendCircleDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendCircleDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendCircleDemoTests/Pods-FriendCircleDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		F1D47C270E5EA45E80C374C2 /* Pods-FriendCircleDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendCircleDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendCircleDemoUITests/Pods-FriendCircleDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F5F6AAB6591D430B5230661A /* Pods-FriendCircleDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendCircleDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendCircleDemoUITests/Pods-FriendCircleDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA1358912015DA5B00554F5A /* FriendCircleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendCircleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1358942015DA5B00554F5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA1358952015DA5B00554F5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA1358972015DA5B00554F5A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA1358982015DA5B00554F5A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA13589B2015DA5B00554F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA13589D2015DA5B00554F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA1358A02015DA5B00554F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA1358A22015DA5B00554F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA1358A32015DA5B00554F5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA1358A92015DA5C00554F5A /* FriendCircleDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendCircleDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1358AD2015DA5C00554F5A /* FriendCircleDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCircleDemoTests.m; sourceTree = "<group>"; };
+		FA1358AF2015DA5C00554F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA1358B42015DA5C00554F5A /* FriendCircleDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendCircleDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1358B82015DA5C00554F5A /* FriendCircleDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCircleDemoUITests.m; sourceTree = "<group>"; };
+		FA1358BA2015DA5C00554F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA1358C62015E08B00554F5A /* FJTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTopicViewController.h; sourceTree = "<group>"; };
+		FA1358C72015E08B00554F5A /* FJTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTopicViewController.m; sourceTree = "<group>"; };
+		FA1358CD20171D2F00554F5A /* FJTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTopic.h; sourceTree = "<group>"; };
+		FA1358CE20171D2F00554F5A /* FJTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTopic.m; sourceTree = "<group>"; };
+		FA1358D020171D4A00554F5A /* FJComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJComment.h; sourceTree = "<group>"; };
+		FA1358D120171D4A00554F5A /* FJComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJComment.m; sourceTree = "<group>"; };
+		FA1358D320171D6700554F5A /* FJCommentReply.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJCommentReply.h; sourceTree = "<group>"; };
+		FA1358D420171D6700554F5A /* FJCommentReply.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCommentReply.m; sourceTree = "<group>"; };
+		FA1358D620171D7A00554F5A /* FJUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJUser.h; sourceTree = "<group>"; };
+		FA1358D720171D7A00554F5A /* FJUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUser.m; sourceTree = "<group>"; };
+		FA1358D920171D9800554F5A /* FJTopicFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTopicFrame.h; sourceTree = "<group>"; };
+		FA1358DA20171D9900554F5A /* FJTopicFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTopicFrame.m; sourceTree = "<group>"; };
+		FA1358DC20171DB200554F5A /* FJCommentFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJCommentFrame.h; sourceTree = "<group>"; };
+		FA1358DD20171DB200554F5A /* FJCommentFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCommentFrame.m; sourceTree = "<group>"; };
+		FA1358E020171E6D00554F5A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FA1358E120171E9B00554F5A /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		FA1358E22017265900554F5A /* GlobeConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobeConst.h; sourceTree = "<group>"; };
+		FA1358E32017265900554F5A /* GlobeConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobeConst.m; sourceTree = "<group>"; };
+		FA1358E52017268E00554F5A /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		FA1358ED20172B2900554F5A /* UIFont+FJEXtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+FJEXtension.h"; sourceTree = "<group>"; };
+		FA1358EE20172B2900554F5A /* UIFont+FJEXtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FJEXtension.m"; sourceTree = "<group>"; };
+		FA1358F020175C5000554F5A /* FJTopicHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTopicHeaderView.h; sourceTree = "<group>"; };
+		FA1358F120175C5000554F5A /* FJTopicHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTopicHeaderView.m; sourceTree = "<group>"; };
+		FA1358F320175C6F00554F5A /* FJTopicFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTopicFooterView.h; sourceTree = "<group>"; };
+		FA1358F420175C6F00554F5A /* FJTopicFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTopicFooterView.m; sourceTree = "<group>"; };
+		FA1358F620175CA600554F5A /* FJCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJCommentCell.h; sourceTree = "<group>"; };
+		FA1358F720175CA600554F5A /* FJCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCommentCell.m; sourceTree = "<group>"; };
+		FA1358F92018790F00554F5A /* NSObject+FJRandom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+FJRandom.h"; sourceTree = "<group>"; };
+		FA1358FA2018790F00554F5A /* NSObject+FJRandom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FJRandom.m"; sourceTree = "<group>"; };
+		FA3A2501201EE84B00B146C0 /* FJUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJUserManager.h; sourceTree = "<group>"; };
+		FA3A2502201EE84B00B146C0 /* FJUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUserManager.m; sourceTree = "<group>"; };
+		FA3A2504202059BF00B146C0 /* FJCommentReplyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJCommentReplyManager.h; sourceTree = "<group>"; };
+		FA3A2505202059BF00B146C0 /* FJCommentReplyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCommentReplyManager.m; sourceTree = "<group>"; };
+		FA59E361201C51EE00613B8F /* FJRegularExpressionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJRegularExpressionManager.h; sourceTree = "<group>"; };
+		FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJRegularExpressionManager.m; sourceTree = "<group>"; };
+		FA59E364201CC14800613B8F /* UIBarButtonItem+EXtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+EXtension.h"; sourceTree = "<group>"; };
+		FA59E365201CC14800613B8F /* UIBarButtonItem+EXtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+EXtension.m"; sourceTree = "<group>"; };
+		FA59E367201CC43F00613B8F /* FJInputPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJInputPanelView.h; sourceTree = "<group>"; };
+		FA59E368201CC43F00613B8F /* FJInputPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJInputPanelView.m; sourceTree = "<group>"; };
+		FA59E36B201DB86600613B8F /* FJLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJLine.h; sourceTree = "<group>"; };
+		FA59E36C201DB86600613B8F /* FJLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJLine.m; sourceTree = "<group>"; };
+		FA59E36E201DE2CD00613B8F /* UIScrollView+UITouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UITouch.h"; sourceTree = "<group>"; };
+		FA59E36F201DE2CD00613B8F /* UIScrollView+UITouch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UITouch.m"; sourceTree = "<group>"; };
+		FD5BF537319F551DA08767A5 /* Pods-FriendCircleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendCircleDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendCircleDemo/Pods-FriendCircleDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA13588E2015DA5B00554F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2A8F613B8FC2BA2F8DC4730 /* libPods-FriendCircleDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA1358A62015DA5C00554F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62A6F9ED530B9EE09DE2C123 /* libPods-FriendCircleDemoTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA1358B12015DA5C00554F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB6B0D7E7086227C770E9F6B /* libPods-FriendCircleDemoUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53A31FDAEE6F017D800D3A90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD5BF537319F551DA08767A5 /* Pods-FriendCircleDemo.debug.xcconfig */,
+				64D7D2387A0F9721C5592275 /* Pods-FriendCircleDemo.release.xcconfig */,
+				5D51829E5F12D5235CBFFFF2 /* Pods-FriendCircleDemoTests.debug.xcconfig */,
+				D61A95F1DE469212F804BF84 /* Pods-FriendCircleDemoTests.release.xcconfig */,
+				F5F6AAB6591D430B5230661A /* Pods-FriendCircleDemoUITests.debug.xcconfig */,
+				F1D47C270E5EA45E80C374C2 /* Pods-FriendCircleDemoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BB7B01BD4230F19EAC91B937 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12DB2F4E20D3C2F5FD3FCDE7 /* libPods-FriendCircleDemo.a */,
+				5AC87B6301164CA7654EE31C /* libPods-FriendCircleDemoTests.a */,
+				07BAA7FB1F77BF362B36DAF4 /* libPods-FriendCircleDemoUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA1358882015DA5B00554F5A = {
+			isa = PBXGroup;
+			children = (
+				FA1358932015DA5B00554F5A /* FriendCircleDemo */,
+				FA1358AC2015DA5C00554F5A /* FriendCircleDemoTests */,
+				FA1358B72015DA5C00554F5A /* FriendCircleDemoUITests */,
+				FA1358922015DA5B00554F5A /* Products */,
+				53A31FDAEE6F017D800D3A90 /* Pods */,
+				BB7B01BD4230F19EAC91B937 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FA1358922015DA5B00554F5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358912015DA5B00554F5A /* FriendCircleDemo.app */,
+				FA1358A92015DA5C00554F5A /* FriendCircleDemoTests.xctest */,
+				FA1358B42015DA5C00554F5A /* FriendCircleDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA1358932015DA5B00554F5A /* FriendCircleDemo */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358C920171C2900554F5A /* main */,
+				FA1358942015DA5B00554F5A /* AppDelegate.h */,
+				FA1358952015DA5B00554F5A /* AppDelegate.m */,
+				FA1358972015DA5B00554F5A /* ViewController.h */,
+				FA1358982015DA5B00554F5A /* ViewController.m */,
+				FA13589A2015DA5B00554F5A /* Main.storyboard */,
+				FA13589D2015DA5B00554F5A /* Assets.xcassets */,
+				FA13589F2015DA5B00554F5A /* LaunchScreen.storyboard */,
+				FA1358A22015DA5B00554F5A /* Info.plist */,
+				FA1358A32015DA5B00554F5A /* main.m */,
+			);
+			path = FriendCircleDemo;
+			sourceTree = "<group>";
+		};
+		FA1358AC2015DA5C00554F5A /* FriendCircleDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358AD2015DA5C00554F5A /* FriendCircleDemoTests.m */,
+				FA1358AF2015DA5C00554F5A /* Info.plist */,
+			);
+			path = FriendCircleDemoTests;
+			sourceTree = "<group>";
+		};
+		FA1358B72015DA5C00554F5A /* FriendCircleDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358B82015DA5C00554F5A /* FriendCircleDemoUITests.m */,
+				FA1358BA2015DA5C00554F5A /* Info.plist */,
+			);
+			path = FriendCircleDemoUITests;
+			sourceTree = "<group>";
+		};
+		FA1358C920171C2900554F5A /* main */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358DF20171DE700554F5A /* Expand */,
+				FA1358CC20171C4700554F5A /* Controller */,
+				FA1358CB20171C3D00554F5A /* View */,
+				FA1358CA20171C3200554F5A /* Model */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		FA1358CA20171C3200554F5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358CD20171D2F00554F5A /* FJTopic.h */,
+				FA1358CE20171D2F00554F5A /* FJTopic.m */,
+				FA1358D020171D4A00554F5A /* FJComment.h */,
+				FA1358D120171D4A00554F5A /* FJComment.m */,
+				FA1358D320171D6700554F5A /* FJCommentReply.h */,
+				FA1358D420171D6700554F5A /* FJCommentReply.m */,
+				FA1358D620171D7A00554F5A /* FJUser.h */,
+				FA1358D720171D7A00554F5A /* FJUser.m */,
+				FA1358D920171D9800554F5A /* FJTopicFrame.h */,
+				FA1358DA20171D9900554F5A /* FJTopicFrame.m */,
+				FA1358DC20171DB200554F5A /* FJCommentFrame.h */,
+				FA1358DD20171DB200554F5A /* FJCommentFrame.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA1358CB20171C3D00554F5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358F020175C5000554F5A /* FJTopicHeaderView.h */,
+				FA1358F120175C5000554F5A /* FJTopicHeaderView.m */,
+				FA1358F320175C6F00554F5A /* FJTopicFooterView.h */,
+				FA1358F420175C6F00554F5A /* FJTopicFooterView.m */,
+				FA1358F620175CA600554F5A /* FJCommentCell.h */,
+				FA1358F720175CA600554F5A /* FJCommentCell.m */,
+				FA59E367201CC43F00613B8F /* FJInputPanelView.h */,
+				FA59E368201CC43F00613B8F /* FJInputPanelView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA1358CC20171C4700554F5A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358C62015E08B00554F5A /* FJTopicViewController.h */,
+				FA1358C72015E08B00554F5A /* FJTopicViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA1358DF20171DE700554F5A /* Expand */ = {
+			isa = PBXGroup;
+			children = (
+				FA59E36A201DB81C00613B8F /* Public */,
+				FA59E360201C519600613B8F /* Manager */,
+				FA1358E6201727C500554F5A /* Category */,
+				FA1358EB2017298D00554F5A /* PrefixHeader */,
+				FA1358EA2017292F00554F5A /* GlobeConst */,
+				FA1358E92017291E00554F5A /* Header */,
+				FA1358E8201728C600554F5A /* Macro */,
+			);
+			path = Expand;
+			sourceTree = "<group>";
+		};
+		FA1358E6201727C500554F5A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358ED20172B2900554F5A /* UIFont+FJEXtension.h */,
+				FA1358EE20172B2900554F5A /* UIFont+FJEXtension.m */,
+				FA1358F92018790F00554F5A /* NSObject+FJRandom.h */,
+				FA1358FA2018790F00554F5A /* NSObject+FJRandom.m */,
+				FA59E364201CC14800613B8F /* UIBarButtonItem+EXtension.h */,
+				FA59E365201CC14800613B8F /* UIBarButtonItem+EXtension.m */,
+				FA59E36E201DE2CD00613B8F /* UIScrollView+UITouch.h */,
+				FA59E36F201DE2CD00613B8F /* UIScrollView+UITouch.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FA1358E8201728C600554F5A /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358E52017268E00554F5A /* Macro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		FA1358E92017291E00554F5A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358E120171E9B00554F5A /* Header.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		FA1358EA2017292F00554F5A /* GlobeConst */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358E22017265900554F5A /* GlobeConst.h */,
+				FA1358E32017265900554F5A /* GlobeConst.m */,
+			);
+			path = GlobeConst;
+			sourceTree = "<group>";
+		};
+		FA1358EB2017298D00554F5A /* PrefixHeader */ = {
+			isa = PBXGroup;
+			children = (
+				FA1358E020171E6D00554F5A /* PrefixHeader.pch */,
+			);
+			path = PrefixHeader;
+			sourceTree = "<group>";
+		};
+		FA59E360201C519600613B8F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FA59E361201C51EE00613B8F /* FJRegularExpressionManager.h */,
+				FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */,
+				FA3A2501201EE84B00B146C0 /* FJUserManager.h */,
+				FA3A2502201EE84B00B146C0 /* FJUserManager.m */,
+				FA3A2504202059BF00B146C0 /* FJCommentReplyManager.h */,
+				FA3A2505202059BF00B146C0 /* FJCommentReplyManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		FA59E36A201DB81C00613B8F /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				FA59E36B201DB86600613B8F /* FJLine.h */,
+				FA59E36C201DB86600613B8F /* FJLine.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA1358902015DA5B00554F5A /* FriendCircleDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA1358BD2015DA5C00554F5A /* Build configuration list for PBXNativeTarget "FriendCircleDemo" */;
+			buildPhases = (
+				757D9FDFC4F302548A0952DF /* [CP] Check Pods Manifest.lock */,
+				FA13588D2015DA5B00554F5A /* Sources */,
+				FA13588E2015DA5B00554F5A /* Frameworks */,
+				FA13588F2015DA5B00554F5A /* Resources */,
+				C942B7DD18F0DD5EE87D73F3 /* [CP] Embed Pods Frameworks */,
+				58DC111C1E9FFBA5E8A1EB62 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FriendCircleDemo;
+			productName = FriendCircleDemo;
+			productReference = FA1358912015DA5B00554F5A /* FriendCircleDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA1358A82015DA5C00554F5A /* FriendCircleDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA1358C02015DA5C00554F5A /* Build configuration list for PBXNativeTarget "FriendCircleDemoTests" */;
+			buildPhases = (
+				16F9928C75516431A5FC222A /* [CP] Check Pods Manifest.lock */,
+				FA1358A52015DA5C00554F5A /* Sources */,
+				FA1358A62015DA5C00554F5A /* Frameworks */,
+				FA1358A72015DA5C00554F5A /* Resources */,
+				1086BDC7879E07E720333DA7 /* [CP] Embed Pods Frameworks */,
+				9050ACB07768E8A8536F505B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA1358AB2015DA5C00554F5A /* PBXTargetDependency */,
+			);
+			name = FriendCircleDemoTests;
+			productName = FriendCircleDemoTests;
+			productReference = FA1358A92015DA5C00554F5A /* FriendCircleDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA1358B32015DA5C00554F5A /* FriendCircleDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA1358C32015DA5C00554F5A /* Build configuration list for PBXNativeTarget "FriendCircleDemoUITests" */;
+			buildPhases = (
+				F97659A6C6DA134EBC59AA6D /* [CP] Check Pods Manifest.lock */,
+				FA1358B02015DA5C00554F5A /* Sources */,
+				FA1358B12015DA5C00554F5A /* Frameworks */,
+				FA1358B22015DA5C00554F5A /* Resources */,
+				56C5F20521E4872DD4C7E936 /* [CP] Embed Pods Frameworks */,
+				6EDF800C47313FBFEABE6000 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA1358B62015DA5C00554F5A /* PBXTargetDependency */,
+			);
+			name = FriendCircleDemoUITests;
+			productName = FriendCircleDemoUITests;
+			productReference = FA1358B42015DA5C00554F5A /* FriendCircleDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA1358892015DA5B00554F5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = nuanqing;
+				TargetAttributes = {
+					FA1358902015DA5B00554F5A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					FA1358A82015DA5C00554F5A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA1358902015DA5B00554F5A;
+					};
+					FA1358B32015DA5C00554F5A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA1358902015DA5B00554F5A;
+					};
+				};
+			};
+			buildConfigurationList = FA13588C2015DA5B00554F5A /* Build configuration list for PBXProject "FriendCircleDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA1358882015DA5B00554F5A;
+			productRefGroup = FA1358922015DA5B00554F5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA1358902015DA5B00554F5A /* FriendCircleDemo */,
+				FA1358A82015DA5C00554F5A /* FriendCircleDemoTests */,
+				FA1358B32015DA5C00554F5A /* FriendCircleDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA13588F2015DA5B00554F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1358A12015DA5B00554F5A /* LaunchScreen.storyboard in Resources */,
+				FA13589E2015DA5B00554F5A /* Assets.xcassets in Resources */,
+				FA13589C2015DA5B00554F5A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA1358A72015DA5C00554F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA1358B22015DA5C00554F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1086BDC7879E07E720333DA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendCircleDemoTests/Pods-FriendCircleDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16F9928C75516431A5FC222A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FriendCircleDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56C5F20521E4872DD4C7E936 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendCircleDemoUITests/Pods-FriendCircleDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58DC111C1E9FFBA5E8A1EB62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FriendCircleDemo/Pods-FriendCircleDemo-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendCircleDemo/Pods-FriendCircleDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EDF800C47313FBFEABE6000 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendCircleDemoUITests/Pods-FriendCircleDemoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		757D9FDFC4F302548A0952DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FriendCircleDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9050ACB07768E8A8536F505B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendCircleDemoTests/Pods-FriendCircleDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C942B7DD18F0DD5EE87D73F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendCircleDemo/Pods-FriendCircleDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F97659A6C6DA134EBC59AA6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FriendCircleDemoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA13588D2015DA5B00554F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1358C82015E08B00554F5A /* FJTopicViewController.m in Sources */,
+				FA1358992015DA5B00554F5A /* ViewController.m in Sources */,
+				FA1358FB2018790F00554F5A /* NSObject+FJRandom.m in Sources */,
+				FA1358D820171D7A00554F5A /* FJUser.m in Sources */,
+				FA1358A42015DA5B00554F5A /* main.m in Sources */,
+				FA1358EF20172B2900554F5A /* UIFont+FJEXtension.m in Sources */,
+				FA1358962015DA5B00554F5A /* AppDelegate.m in Sources */,
+				FA1358D520171D6700554F5A /* FJCommentReply.m in Sources */,
+				FA1358F520175C6F00554F5A /* FJTopicFooterView.m in Sources */,
+				FA59E369201CC43F00613B8F /* FJInputPanelView.m in Sources */,
+				FA3A2503201EE84B00B146C0 /* FJUserManager.m in Sources */,
+				FA1358CF20171D2F00554F5A /* FJTopic.m in Sources */,
+				FA1358F220175C5000554F5A /* FJTopicHeaderView.m in Sources */,
+				FA1358F820175CA600554F5A /* FJCommentCell.m in Sources */,
+				FA1358E42017265900554F5A /* GlobeConst.m in Sources */,
+				FA59E370201DE2CD00613B8F /* UIScrollView+UITouch.m in Sources */,
+				FA1358DE20171DB200554F5A /* FJCommentFrame.m in Sources */,
+				FA3A2506202059BF00B146C0 /* FJCommentReplyManager.m in Sources */,
+				FA59E366201CC14800613B8F /* UIBarButtonItem+EXtension.m in Sources */,
+				FA59E363201C51EE00613B8F /* FJRegularExpressionManager.m in Sources */,
+				FA1358D220171D4A00554F5A /* FJComment.m in Sources */,
+				FA1358DB20171D9900554F5A /* FJTopicFrame.m in Sources */,
+				FA59E36D201DB86700613B8F /* FJLine.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA1358A52015DA5C00554F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1358AE2015DA5C00554F5A /* FriendCircleDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA1358B02015DA5C00554F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1358B92015DA5C00554F5A /* FriendCircleDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA1358AB2015DA5C00554F5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA1358902015DA5B00554F5A /* FriendCircleDemo */;
+			targetProxy = FA1358AA2015DA5C00554F5A /* PBXContainerItemProxy */;
+		};
+		FA1358B62015DA5C00554F5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA1358902015DA5B00554F5A /* FriendCircleDemo */;
+			targetProxy = FA1358B52015DA5C00554F5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA13589A2015DA5B00554F5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA13589B2015DA5B00554F5A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA13589F2015DA5B00554F5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA1358A02015DA5B00554F5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA1358BB2015DA5C00554F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA1358BC2015DA5C00554F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA1358BE2015DA5C00554F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD5BF537319F551DA08767A5 /* Pods-FriendCircleDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YMC28H56EE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FriendCircleDemo/main/EXpand/PrefixHeader/PrefixHeader.pch";
+				INFOPLIST_FILE = FriendCircleDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuanqing.FriendCircleDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA1358BF2015DA5C00554F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64D7D2387A0F9721C5592275 /* Pods-FriendCircleDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YMC28H56EE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FriendCircleDemo/main/EXpand/PrefixHeader/PrefixHeader.pch";
+				INFOPLIST_FILE = FriendCircleDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuanqing.FriendCircleDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA1358C12015DA5C00554F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D51829E5F12D5235CBFFFF2 /* Pods-FriendCircleDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YMC28H56EE;
+				INFOPLIST_FILE = FriendCircleDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuanqing.FriendCircleDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FriendCircleDemo.app/FriendCircleDemo";
+			};
+			name = Debug;
+		};
+		FA1358C22015DA5C00554F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D61A95F1DE469212F804BF84 /* Pods-FriendCircleDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YMC28H56EE;
+				INFOPLIST_FILE = FriendCircleDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuanqing.FriendCircleDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FriendCircleDemo.app/FriendCircleDemo";
+			};
+			name = Release;
+		};
+		FA1358C42015DA5C00554F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5F6AAB6591D430B5230661A /* Pods-FriendCircleDemoUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YMC28H56EE;
+				INFOPLIST_FILE = FriendCircleDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuanqing.FriendCircleDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FriendCircleDemo;
+			};
+			name = Debug;
+		};
+		FA1358C52015DA5C00554F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1D47C270E5EA45E80C374C2 /* Pods-FriendCircleDemoUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YMC28H56EE;
+				INFOPLIST_FILE = FriendCircleDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nuanqing.FriendCircleDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FriendCircleDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA13588C2015DA5B00554F5A /* Build configuration list for PBXProject "FriendCircleDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA1358BB2015DA5C00554F5A /* Debug */,
+				FA1358BC2015DA5C00554F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA1358BD2015DA5C00554F5A /* Build configuration list for PBXNativeTarget "FriendCircleDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA1358BE2015DA5C00554F5A /* Debug */,
+				FA1358BF2015DA5C00554F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA1358C02015DA5C00554F5A /* Build configuration list for PBXNativeTarget "FriendCircleDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA1358C12015DA5C00554F5A /* Debug */,
+				FA1358C22015DA5C00554F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA1358C32015DA5C00554F5A /* Build configuration list for PBXNativeTarget "FriendCircleDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA1358C42015DA5C00554F5A /* Debug */,
+				FA1358C52015DA5C00554F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA1358892015DA5B00554F5A /* Project object */;
+}
