@@ -39,6 +39,8 @@
 /** 赞 */
 @property (nonatomic,strong) UIView *likesBaseView;
 
+@property (nonatomic,strong) CAShapeLayer *triangleLayer;
+
 @property (nonatomic,strong) YYLabel *likesLable;
 /** 文本内容 */
 @property (nonatomic , strong) YYLabel *contentLabel;
@@ -88,8 +90,12 @@
     self.contentLabel.frame = _topicFrame.textFrame;
     //图片
     self.topicPicsView.frame = _topicFrame.picsFrame;
-    
+    //赞
     self.likesBaseView.frame = _topicFrame.likesBaseFrame;
+    
+    self.triangleLayer.path = _topicFrame.trianglePath;
+    //释放路径
+    CGPathRelease(_topicFrame.trianglePath);
     
     self.likesLable.frame = _topicFrame.likesFrame;
 }
@@ -218,6 +224,11 @@
         [weakself nicknameDidClicked:highLight.userInfo[FJUserKey]];
         
     };
+    
+    self.triangleLayer = [[CAShapeLayer alloc]init];
+    self.triangleLayer.fillColor = FJGlobalGrayBackgroundColor.CGColor;
+    [self.contentView.layer addSublayer:self.triangleLayer];
+    
 }
 
 #pragma mark - 事件

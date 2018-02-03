@@ -82,24 +82,24 @@
     
      if (self.likesArray.count == 0) return nil;
     __block NSString *likesString = [[NSString alloc]init];
-    __block NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]init];
+    __block NSMutableAttributedString *attributedString = [NSMutableAttributedString attachmentStringWithContent:[UIImage imageNamed:@"like_nor"] contentMode:UIViewContentModeCenter attachmentSize:CGSizeMake(16, 16) alignToFont:FJCommentTextFont alignment:YYTextVerticalAlignmentCenter];
+   
     [self.likesArray enumerateObjectsUsingBlock:^(FJUser *user, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx == 0) {
-            likesString = user.nickname;
+            likesString = [NSString stringWithFormat:@" %@",user.nickname];
         }else{
             likesString = [likesString stringByAppendingString:[NSString stringWithFormat:@",%@",user.nickname]];
         }
     }];
-    attributedString = [[NSMutableAttributedString alloc]initWithString:likesString];
+    [attributedString appendAttributedString:[[NSMutableAttributedString alloc]initWithString:likesString]];
     
     [self.likesArray enumerateObjectsUsingBlock:^(FJUser *user, NSUInteger idx, BOOL * _Nonnull stop) {
         NSRange range = [likesString rangeOfString:user.nickname];
         YYTextHighlight *userHighlight = [YYTextHighlight highlightWithBackgroundColor:FJGlobalHighLightColor];
         userHighlight.userInfo = @{FJUserKey:user};
-        [attributedString setTextHighlight:userHighlight range:range];
-        [attributedString setColor:FJGlobalOrangeTextColor range:range];
+        [attributedString setTextHighlight:userHighlight range:NSMakeRange(range.location+1, range.length)];
+        [attributedString setColor:FJGlobalOrangeTextColor range:NSMakeRange(range.location+1, range.length)];
     }];
-    
     
     return attributedString;
 }

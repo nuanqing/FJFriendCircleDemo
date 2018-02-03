@@ -15,6 +15,7 @@
 @property (nonatomic,strong) UIButton *emoButton;
 @property (nonatomic,assign ,getter=iskeyBoardShow) BOOL keyBoardShow;
 @property (nonatomic,assign) CGFloat keyBoardHeight;
+@property (nonatomic,assign) CGRect endFrame;
 
 @end
 
@@ -28,6 +29,7 @@
 {
     self = [super init];
     if (self) {
+        self.recordHeight = FJCommentInputHeight;
         [self setupUI];
         [self setupSubViewsConstraints];
         [self setupObeserver];
@@ -57,13 +59,14 @@
     }];
     
     [self.emoButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).with.offset(FJTopicVerticalSpace);
         make.bottom.equalTo(self).with.offset(-FJTopicVerticalSpace);
         make.right.equalTo(self).with.offset(-FJTopicHorizontalSpace);
         make.width.equalTo(self.emoButton.mas_height);
+        make.height.equalTo(@(FJCommentTextViewHeight));
     }];
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.and.bottom.equalTo(self.emoButton);
+        make.top.equalTo(self).with.offset(FJTopicVerticalSpace);
+        make.bottom.equalTo(self.emoButton);
         make.left.equalTo(self).with.offset(FJTopicHorizontalSpace);
         make.right.equalTo(self.emoButton.mas_left).with.offset(-FJTopicHorizontalSpace);
     }];
@@ -73,40 +76,6 @@
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyBoardDidHide:) name:UIKeyboardWillHideNotification object:nil];
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 }
-
-#pragma mark - YYTextKeyboardObserver
-- (void)keyboardChangedWithTransition:(YYTextKeyboardTransition)transition{
-    if (!(CGRectGetMinY(transition.toFrame)==FJMainScreenHeight)) {
-        self.hidden = NO;
-    }
-    if (transition.animationDuration == 0) {
-        if (!(CGRectGetMinY(transition.toFrame)==FJMainScreenHeight)) {
-            self.bottom = CGRectGetMinY(transition.toFrame);
-            [self keyBordShow];
-        }else{
-            self.bottom = CGRectGetMinY(transition.toFrame)+FJCommentInputHeight;
-        }
-    } else {
-        [UIView animateWithDuration:transition.animationDuration delay:0 options:transition.animationOption | UIViewAnimationOptionBeginFromCurrentState animations:^{
-            if (!(CGRectGetMinY(transition.toFrame)==FJMainScreenHeight)) {
-                self.bottom = CGRectGetMinY(transition.toFrame);
-            }else{
-                self.bottom = CGRectGetMinY(transition.toFrame)+FJCommentInputHeight;
-            }
-
-        } completion:^(BOOL finished) {
-            if (finished) {
-                if (CGRectGetMinY(transition.toFrame)==FJMainScreenHeight) {
-                     self.hidden = YES;
-                     self.textView.text = NULL;
-                }else{
-                    [self keyBordShow];
-                }
-            }
-        }];
-    }
-}
-
 
 #pragma mark–键盘显示事件
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -123,10 +92,14 @@
     if((beginFrame.origin.y-endFrame.origin.y>0)){
         if (!self.iskeyBoardShow) {
             self.hidden = NO;
+            self.endFrame = endFrame;
             [UIView animateWithDuration:duration delay:0 options:options animations:^{
                 self.bottom = CGRectGetMinY(endFrame);
                 [self keyBordShow];
             } completion:^(BOOL finished) {
+                [self mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.bottom.equalTo(self.superview.mas_top).with.offset(CGRectGetMinY(self.endFrame));
+                }];
                  self.keyBoardShow = YES;
             }];
         }
@@ -141,8 +114,11 @@
     CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationOptions options = ([userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16 ) | UIViewAnimationOptionBeginFromCurrentState;
      [UIView animateWithDuration:duration delay:0 options:options animations:^{
-        self.bottom = FJMainScreenHeight+FJNavHeight;
+         self.bottom = FJMainScreenHeight+self.recordHeight;
      }completion:^(BOOL finished) {
+         [self mas_updateConstraints:^(MASConstraintMaker *make) {
+             make.bottom.equalTo(self.superview.mas_top).with.offset(FJMainScreenHeight+self.recordHeight);
+         }];
          self.hidden = YES;
          self.textView.text = NULL;
          self.keyBoardShow = NO;
@@ -160,10 +136,11 @@
 
 #pragma mark - YYTextViewDelegate
 
-
-//- (void)textViewDidBeginEditing:(YYTextView *)textView{
-//    self.textView.text = NULL;
-//}
+- (void)textViewDidChange:(YYTextView *)textView{
+    //键盘已经收起
+    if (self.bottom > FJMainScreenHeight) return;
+    [self changeHeight:textView.textLayout.textBoundingSize.height];
+}
 
 - (BOOL)textView:(YYTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]){
@@ -172,6 +149,37 @@
     }
     return YES;
 }
+
+- (void)changeHeight:(CGFloat)textViewHeight{
+    CGFloat height = textViewHeight + (FJCommentInputHeight - FJCommentTextViewHeight);
+    if (self.textView.text.length == 0) {
+        height = FJCommentInputHeight;
+    }
+    CGFloat maxHeight = FJCommentInputMaxHeight;
+    if (height > maxHeight) {
+        height = maxHeight;
+    }
+    if (height == self.recordHeight) {
+        return;
+    }
+    
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(height));
+        make.bottom.equalTo(self.superview.mas_top).with.offset(CGRectGetMinY(self.endFrame));
+    }];
+    
+    self.recordHeight = height;
+    
+    // tell constraints they need updating
+    [self setNeedsUpdateConstraints];
+    // update constraints now so we can animate the change
+    [self updateConstraintsIfNeeded];
+    
+        [self layoutIfNeeded];
+ 
+}
+
+
 
 - (void)sendClick{
     

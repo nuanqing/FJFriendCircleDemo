@@ -48,6 +48,8 @@
 
 @property (nonatomic , strong) FJCommentFrame *commentFrame;
 
+@property (nonatomic , assign) CGMutablePathRef trianglePath;
+
 @property (nonatomic,strong) NSMutableArray *commentFrameArray;
 
 /** 话题模型 */

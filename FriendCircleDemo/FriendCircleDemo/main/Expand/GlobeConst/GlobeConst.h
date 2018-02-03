@@ -51,9 +51,12 @@ UIKIT_EXTERN CGFloat const FJCommentVerticalSpace;
 UIKIT_EXTERN NSString * const FJCommentUserKey;
 /** 手机号网址的key */
 UIKIT_EXTERN NSString * const FJMobileOrWebTextKey;
-/** 评论框高度 */
+/** 评论高度 */
 UIKIT_EXTERN CGFloat const FJCommentInputHeight;
-
+/** 评论框最大高度 */
+UIKIT_EXTERN CGFloat const FJCommentInputMaxHeight;
+/** 编辑框高渡 */
+UIKIT_EXTERN CGFloat const FJCommentTextViewHeight;
 /** 多张图片高度 */
 UIKIT_EXTERN CGFloat const FJTopicMorePicWH;
 

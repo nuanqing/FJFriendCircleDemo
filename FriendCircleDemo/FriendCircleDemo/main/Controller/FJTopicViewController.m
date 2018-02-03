@@ -332,12 +332,19 @@
     NSString *text = [self.commentReplyManager textWithCommentId:inputId];
     if (FJStringIsNotEmpty(text)) {
         self.inputPanelView.textView.text = text;
+        [self.inputPanelView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(self.inputPanelView.recordHeight));
+        }];
     }else{
         if (FJStringIsEmpty(nickname)) {
             self.inputPanelView.textView.placeholderText = @"评论";
         }else{
             self.inputPanelView.textView.placeholderText = [NSString stringWithFormat:@"回复:%@",nickname];
         }
+        
+        [self.inputPanelView mas_updateConstraints:^(MASConstraintMaker *make) {
+             make.height.equalTo(@(FJCommentInputHeight));
+        }];
         
     }
 }
@@ -375,8 +382,14 @@
         [self saveComment];
         [self.inputPanelView.textView resignFirstResponder];
     }else{
-         [self.inputPanelView.textView becomeFirstResponder];
-         [self getCommentWithId:topic.comment.commentId nickname:topic.comment.fromUser.nickname];
+        //先读取数据，布局
+        [self getCommentWithId:topic.comment.commentId nickname:topic.comment.fromUser.nickname];
+        //然后给个延迟弹键盘，否则主线程弹键盘与布局同时进行界面卡顿
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.18 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.inputPanelView.textView becomeFirstResponder];
+        });
+        
+        
         
     }
     

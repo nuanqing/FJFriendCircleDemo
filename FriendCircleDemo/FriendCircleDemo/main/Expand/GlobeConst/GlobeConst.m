@@ -50,9 +50,12 @@ CGFloat const FJCommentVerticalSpace = 7.0f;
 NSString * const FJCommentUserKey = @"FJCommentUserKey";
 /** 手机号网址的key */
 NSString * const FJMobileOrWebTextKey = @"FJMobileOrWebTextKey";
-/** 评论框高度 */
+/** 评论高度 */
 CGFloat  const FJCommentInputHeight = 50.f;
-
+/** 编辑框高渡 */
+CGFloat const FJCommentTextViewHeight = 30.f;
+/** 评论框最大高度 */
+CGFloat const FJCommentInputMaxHeight = 140.f;
 /** 多张图片高度 */
 CGFloat const FJTopicMorePicWH = 80.f;
 

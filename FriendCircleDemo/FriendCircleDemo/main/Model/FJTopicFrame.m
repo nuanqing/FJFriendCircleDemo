@@ -146,9 +146,17 @@
         CGFloat likesH = [YYTextLayout layoutWithContainerSize:likesLimitSize text:topic.attributedLikes].textBoundingSize.height+2*FJTopicVerticalSpace;
         self.likesFrame = CGRectMake(likesX, likesY, likesW, likesH);
         
+        CGMutablePathRef path = CGPathCreateMutable();
+        CGPathMoveToPoint(path, nil, likesBaseX+FJTopicHorizontalSpace, likesBaseY);
+        CGPathAddLineToPoint(path, nil, likesBaseX+FJTopicHorizontalSpace*1.5, likesBaseY-FJTopicHorizontalSpace*0.8);
+        CGPathAddLineToPoint(path, nil, likesBaseX+FJTopicHorizontalSpace*2, likesBaseY);
+        CGPathCloseSubpath(path);
+        self.trianglePath = path;
+       
     }else{
          self.likesBaseFrame = CGRectZero;
         self.likesFrame = CGRectZero;
+        self.trianglePath = nil;
     }
     
     //高度

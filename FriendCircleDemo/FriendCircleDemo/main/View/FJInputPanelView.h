@@ -23,6 +23,8 @@
 
 @property (nonatomic,strong) YYTextView *textView;
 
+@property (nonatomic,assign) CGFloat recordHeight;
+
 @property (nonatomic,weak) id<FJInputPanelViewDelegate> delegate;
 
 @end
