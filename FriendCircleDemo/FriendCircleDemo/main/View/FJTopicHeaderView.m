@@ -7,6 +7,7 @@
 //
 
 #import "FJTopicHeaderView.h"
+#import "FJTopicPicsView.h"
 #import "FJTopicFrame.h"
 #import "FJTopic.h"
 #import "FJUser.h"
@@ -30,12 +31,15 @@
 /** 创建时间 */
 @property (nonatomic,strong) YYLabel *createTimeLabel;
 
-/** 评论 */
+/** 评论按钮 */
 @property (nonatomic,strong) UIButton *reviewButton;
 
-/** ContentView */
-@property (nonatomic,strong) UIView *contentBaseView;
+/** 图片内容 */
+@property (nonatomic,strong) FJTopicPicsView *topicPicsView;
+/** 赞 */
+@property (nonatomic,strong) UIView *likesBaseView;
 
+@property (nonatomic,strong) YYLabel *likesLable;
 /** 文本内容 */
 @property (nonatomic , strong) YYLabel *contentLabel;
 
@@ -82,7 +86,12 @@
     self.reviewButton.frame = _topicFrame.reviewFrame;
     // 内容
     self.contentLabel.frame = _topicFrame.textFrame;
-  
+    //图片
+    self.topicPicsView.frame = _topicFrame.picsFrame;
+    
+    self.likesBaseView.frame = _topicFrame.likesBaseFrame;
+    
+    self.likesLable.frame = _topicFrame.likesFrame;
 }
 
 - (void)setTopic:(FJTopic *)topic{
@@ -105,6 +114,10 @@
     
     //内容
     self.contentLabel.attributedText = _topic.attributedText;
+    //图片
+    [self.topicPicsView imageViewForPicArray:_topic.picArray];
+    
+    self.likesLable.attributedText = _topic.attributedLikes;
 }
 
 
@@ -132,7 +145,7 @@
     [self.contentView addSubview:self.nicknameLable];
     
     self.nicknameLable.textTapAction = ^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
-        [weakself nicknameDidClicked];
+        [weakself nicknameDidClicked:weakself.topic.user];
     };
     
     // 点赞按钮
@@ -141,7 +154,6 @@
     [self.thumbBtn setImage:FJImageNamed(@"comment_zan_nor") forState:UIControlStateNormal];
     [self.thumbBtn setImage:FJImageNamed(@"comment_zan_high") forState:UIControlStateSelected];
     [self.thumbBtn setTitleColor:FJGlobalGrayTextColor forState:UIControlStateNormal];
-    [self.thumbBtn setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
     [self.thumbBtn addTarget:self action:@selector(thumbBtnDidClicked) forControlEvents:UIControlEventTouchUpInside];
     self.thumbBtn.titleLabel.font = FJTopicThumbFont;
     [self.contentView addSubview:self.thumbBtn];
@@ -158,7 +170,7 @@
     self.createTimeLabel.textAlignment = NSTextAlignmentLeft;
     self.createTimeLabel.textColor = FJGlobalGrayTextColor;
     [self.contentView addSubview:self.createTimeLabel];
-    //评论
+    //评论按钮
     self.reviewButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.reviewButton setImage:FJImageNamed(@"review_nor") forState:UIControlStateNormal];
     [self.reviewButton addTarget:self action:@selector(commentImageViewTaped) forControlEvents:UIControlEventTouchUpInside];
@@ -185,6 +197,27 @@
         [weakself MobileOrWebClicked:highLight];
     };
     
+    self.topicPicsView = [[FJTopicPicsView alloc]init];
+    [self.contentView addSubview:self.topicPicsView];
+    
+    //赞
+    
+    self.likesBaseView = [[UIView alloc]init];
+    self.likesBaseView.backgroundColor = FJGlobalGrayBackgroundColor;
+    self.likesBaseView.userInteractionEnabled = YES;
+    [self.contentView addSubview:self.likesBaseView];
+    
+    self.likesLable = [[YYLabel alloc]init];
+    self.likesLable.numberOfLines = 0;
+    self.likesLable.textAlignment = NSTextAlignmentLeft;
+    
+    [self.contentView addSubview:self.likesLable];
+    
+    self.likesLable.highlightTapAction = ^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+            YYTextHighlight *highLight = [text attribute:YYTextHighlightAttributeName atIndex:range.location];
+        [weakself nicknameDidClicked:highLight.userInfo[FJUserKey]];
+        
+    };
 }
 
 #pragma mark - 事件
@@ -195,9 +228,9 @@
     }
 }
 
-- (void)nicknameDidClicked{
+- (void)nicknameDidClicked:(FJUser *)user{
     if (self.delegate && [self.delegate respondsToSelector:@selector(topicHeaderViewNickNameDidClicked:)]) {
-        [self.delegate topicHeaderViewNickNameDidClicked:self];
+        [self.delegate topicHeaderViewNickNameDidClicked:user];
     }
 }
 
@@ -230,5 +263,6 @@
         [self.delegate topicHeaderViewMobileOrWebClicked:highLight.userInfo[FJMobileOrWebTextKey]];
     }
 }
+
 
 @end

@@ -16,7 +16,7 @@
 - (void)topicHeaderViewAvatarDidClicked:(FJTopicHeaderView *)topicHeaderView;
 
 /** 点击昵称 */
-- (void)topicHeaderViewNickNameDidClicked:(FJTopicHeaderView *)topicHeaderView;
+- (void)topicHeaderViewNickNameDidClicked:(FJUser *)user;
 
 /** 点击更多按钮 */
 - (void)topicHeaderViewMoreClicked:(FJTopicHeaderView *)topicHeaderView;
@@ -30,7 +30,6 @@
 
 /** 点击手机号，网址 */
 - (void)topicHeaderViewMobileOrWebClicked:(NSString *)text;
-
 
 @end
 

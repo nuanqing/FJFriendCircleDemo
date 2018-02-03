@@ -53,8 +53,11 @@ NSString * const FJMobileOrWebTextKey = @"FJMobileOrWebTextKey";
 /** 评论框高度 */
 CGFloat  const FJCommentInputHeight = 50.f;
 
+/** 多张图片高度 */
+CGFloat const FJTopicMorePicWH = 80.f;
 
-
+/** 一张图片高度 */
+CGFloat const FJTopicOnePicWH = 150.f;
 
 
 

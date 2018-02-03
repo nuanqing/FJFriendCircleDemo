@@ -119,9 +119,8 @@
     // 动画时间
     CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationOptions options = ([userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16 ) | UIViewAnimationOptionBeginFromCurrentState;
-         // 第三方键盘回调三次问题，监听仅执行最后一次
+         // 第三方键盘回调，监听仅执行最后一次
     if((beginFrame.origin.y-endFrame.origin.y>0)){
-        NSLog(@"第三次：%f",self.keyBoardHeight);
         if (!self.iskeyBoardShow) {
             self.hidden = NO;
             [UIView animateWithDuration:duration delay:0 options:options animations:^{

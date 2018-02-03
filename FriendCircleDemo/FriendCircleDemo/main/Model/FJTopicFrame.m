@@ -32,6 +32,12 @@
 
 /** 话题内容frame */
 @property (nonatomic , assign) CGRect textFrame;
+/** 图片内容frame */
+@property (nonatomic,assign) CGRect picsFrame;
+/** 赞frame */
+@property (nonatomic,assign) CGRect likesBaseFrame;
+
+@property (nonatomic,assign) CGRect likesFrame;
 
 @property (nonatomic,assign) CGRect cellFrame;
 /** cell高度 */
@@ -92,39 +98,84 @@
     CGFloat contentH = [YYTextLayout layoutWithContainerSize:limitSize text:topic.attributedText].textBoundingSize.height+2*FJTopicVerticalSpace;
     self.textFrame = CGRectMake(contentX, contentY, contentW, contentH);
     
+    //图片内容
+    if (topic.picArray.count > 0) {
+        long perRowItemCount = [self _perRowItemCountForPicArry:topic.picArray];
+        CGFloat picX = nickNameX;
+        CGFloat picY = CGRectGetMaxY(self.textFrame);
+        CGFloat picWH = [self _picWHForPicArray:topic.picArray];
+        CGFloat margin = FJTopicHorizontalSpace/2;
+        int columnCount = ceilf(topic.picArray.count * 1.0 / perRowItemCount);
+        CGFloat picsH = columnCount * picWH + (columnCount - 1) * margin;
+        CGFloat picsW = contentW;
+        self.picsFrame = CGRectMake(picX, picY, picsW, picsH);
+    }
     
     // 时间
     CGFloat timeX = nickNameX;
-    CGFloat timeY = CGRectGetMaxY(self.textFrame);
+    CGFloat timeY;
+    if (topic.picArray.count > 0) {
+        timeY = CGRectGetMaxY(self.picsFrame)+FJTopicVerticalSpace;
+    }else{
+        timeY = CGRectGetMaxY(self.textFrame)+FJTopicVerticalSpace;
+    }
     CGFloat timeW = width*0.4;
     CGFloat timeH = moreH;
     self.createTimeFrame = CGRectMake(timeX, timeY, timeW, timeH);
     
     //评论
     CGFloat reviewX = width - moreW - 2*FJTopicHorizontalSpace;
-    CGFloat reviewY = CGRectGetMaxY(self.textFrame);
+    CGFloat reviewY = timeY;
     CGFloat reviewW = moreH;
     CGFloat reviewH = moreH;
-    
     self.reviewFrame = CGRectMake(reviewX, reviewY, reviewW, reviewH);
     
-    self.height = CGRectGetMaxY(self.createTimeFrame)+FJTopicVerticalSpace;
+    //赞
+    if (topic.likesArray.count>0) {
+        CGFloat likesBaseX = nickNameX;
+        CGSize likesBaseLimitSize = CGSizeMake(width-likesBaseX-FJTopicHorizontalSpace, MAXFLOAT);
+        CGFloat likesBaseY =  CGRectGetMaxY(self.createTimeFrame)+FJTopicVerticalSpace;
+        CGFloat likesBaseW = limitSize.width;
+        CGFloat likesBaseH = [YYTextLayout layoutWithContainerSize:likesBaseLimitSize text:topic.attributedLikes].textBoundingSize.height+2*FJTopicVerticalSpace;
+        self.likesBaseFrame = CGRectMake(likesBaseX, likesBaseY, likesBaseW, likesBaseH);
+        
+        CGFloat likesX = nickNameX+FJTopicHorizontalSpace/2;
+        CGSize likesLimitSize = CGSizeMake((width-likesX)-FJTopicHorizontalSpace*1.5, MAXFLOAT);
+        CGFloat likesY =  likesBaseY;
+        CGFloat likesW = likesLimitSize.width;
+        CGFloat likesH = [YYTextLayout layoutWithContainerSize:likesLimitSize text:topic.attributedLikes].textBoundingSize.height+2*FJTopicVerticalSpace;
+        self.likesFrame = CGRectMake(likesX, likesY, likesW, likesH);
+        
+    }else{
+         self.likesBaseFrame = CGRectZero;
+        self.likesFrame = CGRectZero;
+    }
     
-    if (topic.commentArray.count > 0) {
-        [self.commentFrameArray removeAllObjects];
-        [topic.commentArray enumerateObjectsUsingBlock:^(FJComment *comment, NSUInteger idx, BOOL * _Nonnull stop) {
-            FJCommentFrame *commentFrame = [[FJCommentFrame alloc]init];
-            commentFrame.comment = comment;
-            [self.commentFrameArray addObject:commentFrame];
-        }];
+    //高度
+    if (topic.likesArray.count>0) {
+        self.height = CGRectGetMaxY(self.likesBaseFrame)+FJTopicVerticalSpace/4;
+    }else{
+        self.height = CGRectGetMaxY(self.createTimeFrame)+FJTopicVerticalSpace;
+    };
+}
+
+- (NSInteger)_perRowItemCountForPicArry:(NSArray *)array
+{
+    if (array.count < 3) {
+        return array.count;
+    } else if (array.count <= 4) {
+        return 2;
+    } else {
+        return 3;
     }
 }
 
-
-
-
-
-
+- (CGFloat)_picWHForPicArray:(NSArray *)array{
+    if (array.count == 1) {
+        return FJTopicOnePicWH;
+    }
+    return FJTopicMorePicWH;
+}
 
 
 

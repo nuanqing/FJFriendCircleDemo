@@ -52,9 +52,10 @@
 
 @property (nonatomic,strong) FJUser *toUser;
 
+@property (nonatomic,strong) NSMutableArray *picArray;
 
 //是评论还是回复
-@property (nonatomic,assign) BOOL isReply;
+@property (nonatomic,assign,getter=isReply) BOOL reply;
 
 @end
 
@@ -87,20 +88,33 @@
 
 - (void)setupData{
     NSDate *date = [NSDate date];
-    for (int i = 0; i<30; i++) {
+    for (int i = 0; i<5; i++) {
         // 话题
         FJTopic *topic = [[FJTopic alloc] init];
+        FJTopicFrame *topicFrame = [[FJTopicFrame alloc] init];
         topic.topicId = [NSString stringWithFormat:@"100%zd",i];
         topic.thumbNums = [NSObject fj_randomNumber:1000 to:100000];
-        topic.thumb = [NSObject fj_randomNumber:0 to:1];
+        topic.thumb = NO;
         NSTimeInterval t = date.timeIntervalSince1970 - 1000 *(30-i) - 60;
         topic.creatTime = [NSString stringWithTimeInterval:t];
         topic.text = [self.contentString substringFromIndex:[NSObject fj_randomNumber:0 to:self.contentString.length-1]];
+        //随机加入图片
+        for (int i = 0; i<[NSObject fj_randomNumber:0 to:self.picArray.count]; i++) {
+            [topic.picArray addObject:self.picArray[i]];
+        }
+        //随机加入评论
+        for (int i = 0; i<[NSObject fj_randomNumber:0 to:self.userArray.count]; i++) {
+            [topic.likesArray addObject:self.userArray[i]];
+        }
+        
         topic.user = self.userArray[[NSObject fj_randomNumber:0 to:self.userArray.count-1]];
+        
+        
         //评论
         NSInteger commentsCount = [NSObject fj_randomNumber:0 to:9];
         for (int j=0; j<commentsCount; j++) {
             FJComment *comment = [[FJComment alloc]init];
+            FJCommentFrame *commentFrame = [[FJCommentFrame alloc]init];
             comment.text = [self.contentString substringToIndex:[NSObject fj_randomNumber:0 to:100]];
             comment.commentId = [NSString stringWithFormat:@"110%d",i+j];
             _lastCommentId = comment.commentId;
@@ -109,8 +123,10 @@
             }
              comment.fromUser = self.userArray[[NSObject fj_randomNumber:0 to:5]];
             [topic.commentArray addObject:comment];
+
+            commentFrame.comment = comment;
+            [topicFrame.commentFrameArray addObject:commentFrame];
         }
-        FJTopicFrame *topicFrame = [[FJTopicFrame alloc] init];
         topicFrame.topic = topic;
         [self.topicArray addObject:topic];
         [self.topicFrameArray addObject:topicFrame];
@@ -127,7 +143,7 @@
     FJTopic *topic = [[FJTopic alloc] init];
     topic.topicId = [NSString stringWithFormat:@"100%zd",self.topicArray.count];
     topic.thumbNums = [NSObject fj_randomNumber:1000 to:100000];
-    topic.thumb = [NSObject fj_randomNumber:0 to:1];
+    topic.thumb = NO;
     topic.creatTime = [NSString stringWithTimeInterval:t];
     topic.text = [self.contentString substringFromIndex:[NSObject fj_randomNumber:0 to:self.contentString.length-1]];
     topic.user = [FJUserManager sharedManager].user;
@@ -152,35 +168,33 @@
 
 - (void)textViewSendClicked{
     
-    NSIndexPath *refreshCell = [NSIndexPath
-                                indexPathForRow:self.recordRow inSection:self.recordSection];
-    
-    NSArray *insertIndexPaths = [NSArray arrayWithObjects:refreshCell,nil];
-    
     [self.topicArray enumerateObjectsUsingBlock:^(FJTopic *topic, NSUInteger idx, BOOL * _Nonnull stop) {
         if (idx == self.recordSection) {
             FJComment *comment = [[FJComment alloc]init];
+            FJCommentFrame *commentFrame = [[FJCommentFrame alloc]init];
             comment.text = self.inputPanelView.textView.text;
             _lastCommentId = [NSString stringWithFormat:@"%ld",[_lastCommentId integerValue] + 1];
             comment.commentId = _lastCommentId;
             comment.fromUser = [FJUserManager sharedManager].user;
-            if (_isReply) {
+            if (self.isReply) {
                 //回复
             comment.toUser = self.toUser;
             }
+            commentFrame.comment = comment;
             [topic.commentArray insertObject:comment atIndex:self.recordRow];
+            
             [self.topicFrameArray enumerateObjectsUsingBlock:^(FJTopicFrame *topicFrame, NSUInteger idx, BOOL * _Nonnull stop) {
                 if (idx == self.recordSection) {
-                    [topicFrame setTopic:topic];
+                    [topicFrame.commentFrameArray addObject:commentFrame];
                 }
                 
             }];
         }
     }];
     [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRow:self.recordRow inSection:self.recordSection withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
-    if (_isReply) {
+    if (self.isReply) {
         [[FJCommentReplyManager manager] removeid:self.recordCommentId];
     }else{
         [[FJCommentReplyManager manager] removeid:self.recordTopicId];
@@ -209,18 +223,42 @@
     topic.thumb = !topic.isThumb;
     if (topic.isThumb) {
         topic.thumbNums+=1;
+        [self.topicArray enumerateObjectsUsingBlock:^(FJTopic *topic, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (idx == [self.topicArray indexOfObject:topicHeaderView.topic]) {
+                [topic.likesArray addObject:[FJUserManager sharedManager].user];
+                [self.topicFrameArray enumerateObjectsUsingBlock:^(FJTopicFrame *topicFrame, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if (idx == [self.topicArray indexOfObject:topicHeaderView.topic]) {
+                        [topicFrame setTopic:topic];
+                    }
+                    
+                }];
+            }
+            
+        }];
+        
     }else{
         topic.thumbNums-=1;
+        [self.topicArray enumerateObjectsUsingBlock:^(FJTopic *topic, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (idx == [self.topicArray indexOfObject:topicHeaderView.topic]) {
+                [topic.likesArray removeObject:[FJUserManager sharedManager].user];
+                [self.topicFrameArray enumerateObjectsUsingBlock:^(FJTopicFrame *topicFrame, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if (idx == [self.topicArray indexOfObject:topicHeaderView.topic]) {
+                        [topicFrame setTopic:topic];
+                    }
+                    
+                }];
+            }
+            
+        }];
     }
-    
     // 刷新数据
     [self.tableView reloadData];
 }
 /**
  点击昵称
  */
-- (void)topicHeaderViewNickNameDidClicked:(FJTopicHeaderView *)topicHeaderView{
-    NSLog(@"%@",topicHeaderView.topic.user.nickname);
+- (void)topicHeaderViewNickNameDidClicked:(FJUser *)user{
+    NSLog(@"%@",user.nickname);
     
 }
 /**
@@ -239,12 +277,11 @@
         
         
     }
-    NSLog(@"%@",topicHeaderView.topic.topicId);
     self.recordTopicId = topicHeaderView.topic.topicId;
     //
     self.recordSection = [self.topicArray indexOfObject:topicHeaderView.topic];
     self.recordRow = topicHeaderView.topic.commentArray.count;
-    self.isReply = NO;
+    self.reply = NO;
 }
 /**
  点击内容
@@ -347,7 +384,7 @@
     self.recordSection = indexPath.section;
     self.recordRow = topic.commentArray.count;
     self.toUser = topic.comment.fromUser;
-    self.isReply = YES;
+    self.reply = YES;
     
 }
 
@@ -364,6 +401,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     FJTopicFrame *topicFrame = self.topicFrameArray[indexPath.section];
+    NSLog(@"%ld------%ld",indexPath.row,topicFrame.commentFrameArray.count);
     topicFrame.commentFrame = topicFrame.commentFrameArray[indexPath.row];
     return topicFrame.commentFrame.cellHeight;
 }
@@ -438,6 +476,9 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.estimatedRowHeight = 0;
+        _tableView.estimatedSectionHeaderHeight = 0;
+        _tableView.estimatedSectionFooterHeight = 0;
     }
     return _tableView;
 }
@@ -460,69 +501,79 @@
 }
 
 
+- (NSMutableArray *)picArray{
+    if (!_picArray) {
+        _picArray = [[NSMutableArray alloc]init];
+        for (int i = 1; i<10; i++) {
+            NSString *picString = [NSString stringWithFormat:@"http://img.ivsky.com/img/tupian/t/201611/11/guaiwu_daxue_donghua-00%d.jpg",i];
+            [_picArray addObject:picString];
+        }
+    }
+    return _picArray;
+}
 
 - (NSMutableArray *)userArray{
     if (!_userArray) {
         _userArray = [[NSMutableArray alloc]init];
         FJUser *user0 = [[FJUser alloc] init];
         user0.userId = @"1000";
-        user0.nickname = @"小美女";
+        user0.nickname = @"冯宝宝";
         user0.avatarUrl = @"http://img2.woyaogexing.com/2017/07/30/f195c510519a7761!388x388_big.png";
         [_userArray addObject:user0];
         
         
         FJUser *user1 = [[FJUser alloc] init];
         user1.userId = @"1001";
-        user1.nickname = @"吴亦凡";
+        user1.nickname = @"路飞";
         user1.avatarUrl = @"http://img2.woyaogexing.com/2017/07/17/d9c5eb7ce1454bb8!400x400_big.jpg";
         [_userArray addObject:user1];
         
         
         FJUser *user2 = [[FJUser alloc] init];
         user2.userId = @"1002";
-        user2.nickname = @"杨洋";
+        user2.nickname = @"鸣人";
         user2.avatarUrl = @"http://img2.woyaogexing.com/2017/07/10/42b2eea30ed7fd92!400x400_big.jpg";
         [_userArray addObject:user2];
         
         
         FJUser *user3 = [[FJUser alloc] init];
         user3.userId = @"1003";
-        user3.nickname = @"陈伟霆";
+        user3.nickname = @"佐助";
         user3.avatarUrl = @"http://img2.woyaogexing.com/2017/07/04/7b2dab5c6030f40d!400x400_big.jpg";
         [_userArray addObject:user3];
         
         
         FJUser *user4 = [[FJUser alloc] init];
         user4.userId = @"1004";
-        user4.nickname = @"张艺兴";
+        user4.nickname = @"派大星";
         user4.avatarUrl = @"http://img2.woyaogexing.com/2017/07/03/31d9ef8f6948129f!400x400_big.jpg";
         [_userArray addObject:user4];
         
         
         FJUser *user5 = [[FJUser alloc] init];
         user5.userId = @"1005";
-        user5.nickname = @"鹿晗";
+        user5.nickname = @"小鹿";
         user5.avatarUrl = @"http://img2.woyaogexing.com/2017/06/12/b035bc4405192cc5!400x400_big.jpg";
         [_userArray addObject:user5];
         
         
         FJUser *user6 = [[FJUser alloc] init];
         user6.userId = @"1006";
-        user6.nickname = @"杨幂";
+        user6.nickname = @"叶修";
         user6.avatarUrl = @"http://img2.woyaogexing.com/2017/06/08/3a00b4d71dd49548!400x400_big.jpg";
         [_userArray addObject:user6];
         
         
         FJUser *user7 = [[FJUser alloc] init];
         user7.userId = @"1007";
-        user7.nickname = @"唐嫣";
+        user7.nickname = @"亚索";
         user7.avatarUrl = @"http://img2.woyaogexing.com/2017/06/05/62399f3f2915913e!400x400_big.jpg";
         [_userArray addObject:user7];
         
         
         FJUser *user8 = [[FJUser alloc] init];
         user8.userId = @"1008";
-        user8.nickname = @"刘亦菲";
+        user8.nickname = @"锤石";
         user8.avatarUrl = @"http://img2.woyaogexing.com/2017/05/24/71620c0119e230e9!400x400_big.jpg";
         [_userArray addObject:user8];
         

@@ -54,6 +54,10 @@ UIKIT_EXTERN NSString * const FJMobileOrWebTextKey;
 /** 评论框高度 */
 UIKIT_EXTERN CGFloat const FJCommentInputHeight;
 
+/** 多张图片高度 */
+UIKIT_EXTERN CGFloat const FJTopicMorePicWH;
 
+/** 一张图片高度 */
+UIKIT_EXTERN CGFloat const FJTopicOnePicWH;
 
 

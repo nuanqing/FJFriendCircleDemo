@@ -31,6 +31,13 @@
 
 /** 话题内容frame */
 @property (nonatomic , assign , readonly) CGRect textFrame;
+/** 图片内容frame */
+@property (nonatomic,assign,readonly) CGRect picsFrame;
+
+/** 赞frame */
+@property (nonatomic,assign,readonly) CGRect likesBaseFrame;
+
+@property (nonatomic,assign,readonly) CGRect likesFrame;
 
 /** height 这里只是 整个话题占据的高度 */
 @property (nonatomic , assign , readonly) CGFloat height;

@@ -16,13 +16,11 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     //当前时间
     NSDate *nowDate=[NSDate date];
-    NSLog(@"当前时间---%@",nowDate);
     //需要转换的时间
     NSDate *needDate=[[NSDate alloc]initWithTimeIntervalSince1970:timeInterval];
     //[dateFormatter dateFromString:dateString];
     //比较当前时间与需要转换的时间
     NSTimeInterval time =[nowDate timeIntervalSinceDate:needDate];
-    NSLog(@"间隔--- %f",time);
     //替换间隔的秒数
     NSString *dateStr=[[NSString alloc]init];
     //1分钟之内
@@ -69,11 +67,9 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     //当前时间
     NSDate *nowDate=[NSDate date];
-    NSLog(@"当前时间---%@",nowDate);
     NSDate *needDate=[dateFormatter dateFromString:dateString];
     //比较当前时间与需要转换的时间
     NSTimeInterval time =[nowDate timeIntervalSinceDate:needDate];
-    NSLog(@"间隔--- %f",time);
     //转换后的输出字符
     NSString *outDateStr=[[NSString alloc]init];
     //1分钟之内

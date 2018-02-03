@@ -21,7 +21,6 @@
 		FA1358C82015E08B00554F5A /* FJTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358C72015E08B00554F5A /* FJTopicViewController.m */; };
 		FA1358CF20171D2F00554F5A /* FJTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358CE20171D2F00554F5A /* FJTopic.m */; };
 		FA1358D220171D4A00554F5A /* FJComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358D120171D4A00554F5A /* FJComment.m */; };
-		FA1358D520171D6700554F5A /* FJCommentReply.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358D420171D6700554F5A /* FJCommentReply.m */; };
 		FA1358D820171D7A00554F5A /* FJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358D720171D7A00554F5A /* FJUser.m */; };
 		FA1358DB20171D9900554F5A /* FJTopicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358DA20171D9900554F5A /* FJTopicFrame.m */; };
 		FA1358DE20171DB200554F5A /* FJCommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1358DD20171DB200554F5A /* FJCommentFrame.m */; };
@@ -34,6 +33,10 @@
 		FA3A2503201EE84B00B146C0 /* FJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A2502201EE84B00B146C0 /* FJUserManager.m */; };
 		FA3A2506202059BF00B146C0 /* FJCommentReplyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A2505202059BF00B146C0 /* FJCommentReplyManager.m */; };
 		FA3A250C202206A600B146C0 /* NSString+FJDate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A250B202206A600B146C0 /* NSString+FJDate.m */; };
+		FA3A250F2022CB8C00B146C0 /* FJTopicPicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A250E2022CB8C00B146C0 /* FJTopicPicsView.m */; };
+		FA3A251B2022F0A700B146C0 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A25142022F0A600B146C0 /* SDBrowserImageView.m */; };
+		FA3A251C2022F0A700B146C0 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A25182022F0A600B146C0 /* SDWaitingView.m */; };
+		FA3A251D2022F0A700B146C0 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A25192022F0A600B146C0 /* SDPhotoBrowser.m */; };
 		FA59E363201C51EE00613B8F /* FJRegularExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */; };
 		FA59E366201CC14800613B8F /* UIBarButtonItem+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E365201CC14800613B8F /* UIBarButtonItem+EXtension.m */; };
 		FA59E369201CC43F00613B8F /* FJInputPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E368201CC43F00613B8F /* FJInputPanelView.m */; };
@@ -89,8 +92,6 @@
 		FA1358CE20171D2F00554F5A /* FJTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTopic.m; sourceTree = "<group>"; };
 		FA1358D020171D4A00554F5A /* FJComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJComment.h; sourceTree = "<group>"; };
 		FA1358D120171D4A00554F5A /* FJComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJComment.m; sourceTree = "<group>"; };
-		FA1358D320171D6700554F5A /* FJCommentReply.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJCommentReply.h; sourceTree = "<group>"; };
-		FA1358D420171D6700554F5A /* FJCommentReply.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCommentReply.m; sourceTree = "<group>"; };
 		FA1358D620171D7A00554F5A /* FJUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJUser.h; sourceTree = "<group>"; };
 		FA1358D720171D7A00554F5A /* FJUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJUser.m; sourceTree = "<group>"; };
 		FA1358D920171D9800554F5A /* FJTopicFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTopicFrame.h; sourceTree = "<group>"; };
@@ -118,6 +119,15 @@
 		FA3A2505202059BF00B146C0 /* FJCommentReplyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJCommentReplyManager.m; sourceTree = "<group>"; };
 		FA3A250A202206A600B146C0 /* NSString+FJDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FJDate.h"; sourceTree = "<group>"; };
 		FA3A250B202206A600B146C0 /* NSString+FJDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FJDate.m"; sourceTree = "<group>"; };
+		FA3A250D2022CB8C00B146C0 /* FJTopicPicsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJTopicPicsView.h; sourceTree = "<group>"; };
+		FA3A250E2022CB8C00B146C0 /* FJTopicPicsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJTopicPicsView.m; sourceTree = "<group>"; };
+		FA3A25142022F0A600B146C0 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		FA3A25152022F0A600B146C0 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		FA3A25162022F0A600B146C0 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		FA3A25172022F0A600B146C0 /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		FA3A25182022F0A600B146C0 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		FA3A25192022F0A600B146C0 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		FA3A251A2022F0A600B146C0 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		FA59E361201C51EE00613B8F /* FJRegularExpressionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJRegularExpressionManager.h; sourceTree = "<group>"; };
 		FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJRegularExpressionManager.m; sourceTree = "<group>"; };
 		FA59E364201CC14800613B8F /* UIBarButtonItem+EXtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+EXtension.h"; sourceTree = "<group>"; };
@@ -242,6 +252,7 @@
 		FA1358C920171C2900554F5A /* main */ = {
 			isa = PBXGroup;
 			children = (
+				FA3A25122022F08200B146C0 /* Vender */,
 				FA1358DF20171DE700554F5A /* Expand */,
 				FA1358CC20171C4700554F5A /* Controller */,
 				FA1358CB20171C3D00554F5A /* View */,
@@ -257,8 +268,6 @@
 				FA1358CE20171D2F00554F5A /* FJTopic.m */,
 				FA1358D020171D4A00554F5A /* FJComment.h */,
 				FA1358D120171D4A00554F5A /* FJComment.m */,
-				FA1358D320171D6700554F5A /* FJCommentReply.h */,
-				FA1358D420171D6700554F5A /* FJCommentReply.m */,
 				FA1358D620171D7A00554F5A /* FJUser.h */,
 				FA1358D720171D7A00554F5A /* FJUser.m */,
 				FA1358D920171D9800554F5A /* FJTopicFrame.h */,
@@ -274,6 +283,8 @@
 			children = (
 				FA1358F020175C5000554F5A /* FJTopicHeaderView.h */,
 				FA1358F120175C5000554F5A /* FJTopicHeaderView.m */,
+				FA3A250D2022CB8C00B146C0 /* FJTopicPicsView.h */,
+				FA3A250E2022CB8C00B146C0 /* FJTopicPicsView.m */,
 				FA1358F320175C6F00554F5A /* FJTopicFooterView.h */,
 				FA1358F420175C6F00554F5A /* FJTopicFooterView.m */,
 				FA1358F620175CA600554F5A /* FJCommentCell.h */,
@@ -355,6 +366,28 @@
 				FA1358E020171E6D00554F5A /* PrefixHeader.pch */,
 			);
 			path = PrefixHeader;
+			sourceTree = "<group>";
+		};
+		FA3A25122022F08200B146C0 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A25132022F08B00B146C0 /* SDPhotoBrowser */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		FA3A25132022F08B00B146C0 /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				FA3A25162022F0A600B146C0 /* SDBrowserImageView.h */,
+				FA3A25142022F0A600B146C0 /* SDBrowserImageView.m */,
+				FA3A25152022F0A600B146C0 /* SDPhotoBrowser.h */,
+				FA3A25192022F0A600B146C0 /* SDPhotoBrowser.m */,
+				FA3A251A2022F0A600B146C0 /* SDPhotoBrowserConfig.h */,
+				FA3A25172022F0A600B146C0 /* SDWaitingView.h */,
+				FA3A25182022F0A600B146C0 /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		FA59E360201C519600613B8F /* Manager */ = {
@@ -675,16 +708,18 @@
 				FA1358992015DA5B00554F5A /* ViewController.m in Sources */,
 				FA1358FB2018790F00554F5A /* NSObject+FJRandom.m in Sources */,
 				FA1358D820171D7A00554F5A /* FJUser.m in Sources */,
+				FA3A251B2022F0A700B146C0 /* SDBrowserImageView.m in Sources */,
 				FA1358A42015DA5B00554F5A /* main.m in Sources */,
+				FA3A250F2022CB8C00B146C0 /* FJTopicPicsView.m in Sources */,
 				FA1358EF20172B2900554F5A /* UIFont+FJEXtension.m in Sources */,
 				FA1358962015DA5B00554F5A /* AppDelegate.m in Sources */,
-				FA1358D520171D6700554F5A /* FJCommentReply.m in Sources */,
 				FA1358F520175C6F00554F5A /* FJTopicFooterView.m in Sources */,
 				FA59E369201CC43F00613B8F /* FJInputPanelView.m in Sources */,
 				FA3A2503201EE84B00B146C0 /* FJUserManager.m in Sources */,
 				FA1358CF20171D2F00554F5A /* FJTopic.m in Sources */,
 				FA1358F220175C5000554F5A /* FJTopicHeaderView.m in Sources */,
 				FA3A250C202206A600B146C0 /* NSString+FJDate.m in Sources */,
+				FA3A251D2022F0A700B146C0 /* SDPhotoBrowser.m in Sources */,
 				FA1358F820175CA600554F5A /* FJCommentCell.m in Sources */,
 				FA1358E42017265900554F5A /* GlobeConst.m in Sources */,
 				FA59E370201DE2CD00613B8F /* UIScrollView+UITouch.m in Sources */,
@@ -693,6 +728,7 @@
 				FA59E366201CC14800613B8F /* UIBarButtonItem+EXtension.m in Sources */,
 				FA59E363201C51EE00613B8F /* FJRegularExpressionManager.m in Sources */,
 				FA1358D220171D4A00554F5A /* FJComment.m in Sources */,
+				FA3A251C2022F0A700B146C0 /* SDWaitingView.m in Sources */,
 				FA1358DB20171D9900554F5A /* FJTopicFrame.m in Sources */,
 				FA59E36D201DB86700613B8F /* FJLine.m in Sources */,
 			);

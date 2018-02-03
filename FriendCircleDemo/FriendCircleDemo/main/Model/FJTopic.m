@@ -22,7 +22,9 @@
 {
     self = [super init];
     if (self) {
-       _commentArray = [[NSMutableArray alloc]init];
+        _picArray = [[NSMutableArray alloc]init];
+        _likesArray = [[NSMutableArray alloc]init];
+        _commentArray = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -75,6 +77,33 @@
     
     return attributedString;
 }
+
+- (NSAttributedString *)attributedLikes{
+    
+     if (self.likesArray.count == 0) return nil;
+    __block NSString *likesString = [[NSString alloc]init];
+    __block NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]init];
+    [self.likesArray enumerateObjectsUsingBlock:^(FJUser *user, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx == 0) {
+            likesString = user.nickname;
+        }else{
+            likesString = [likesString stringByAppendingString:[NSString stringWithFormat:@",%@",user.nickname]];
+        }
+    }];
+    attributedString = [[NSMutableAttributedString alloc]initWithString:likesString];
+    
+    [self.likesArray enumerateObjectsUsingBlock:^(FJUser *user, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSRange range = [likesString rangeOfString:user.nickname];
+        YYTextHighlight *userHighlight = [YYTextHighlight highlightWithBackgroundColor:FJGlobalHighLightColor];
+        userHighlight.userInfo = @{FJUserKey:user};
+        [attributedString setTextHighlight:userHighlight range:range];
+        [attributedString setColor:FJGlobalOrangeTextColor range:range];
+    }];
+    
+    
+    return attributedString;
+}
+
 
 - (void)setThumbNums:(long long)thumbNums
 {

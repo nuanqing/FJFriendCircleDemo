@@ -34,14 +34,22 @@
 
 /** 用户模型 */
 @property (nonatomic,strong) FJUser *user;
-
+/** 评论 */
 @property (nonatomic,strong) FJComment *comment;
+/** 图片数组 */
+@property (nonatomic,strong) NSMutableArray *picArray;
+/** 赞数组 */
+@property (nonatomic,strong) NSMutableArray *likesArray;
 
+/** 评论数组 */
 @property (nonatomic,strong) NSMutableArray *commentArray;
-
+/** 昵称 */
 - (NSAttributedString *)attributedNickName;
 
-/** 富文本 */
+/** 内容 */
 - (NSAttributedString *)attributedText;
+
+/** 赞 */
+- (NSAttributedString *)attributedLikes;
 
 @end
