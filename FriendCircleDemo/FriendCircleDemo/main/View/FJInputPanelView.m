@@ -218,7 +218,7 @@
 - (UIButton *)emoButton{
     if (!_emoButton) {
         _emoButton = [[UIButton alloc]init];
-        _emoButton.backgroundColor = FJRandomColor;
+        [_emoButton setImage:[UIImage imageNamed:@"expression_icon"] forState:UIControlStateNormal];
     }
     return _emoButton;
 }

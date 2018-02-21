@@ -48,7 +48,7 @@
 
 @property (nonatomic , strong) FJCommentFrame *commentFrame;
 
-@property (nonatomic , assign) CGMutablePathRef trianglePath;
+@property (nonatomic , strong) UIBezierPath *trianglePath;
 
 @property (nonatomic,strong) NSMutableArray *commentFrameArray;
 

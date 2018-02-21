@@ -92,12 +92,11 @@
     self.topicPicsView.frame = _topicFrame.picsFrame;
     //赞
     self.likesBaseView.frame = _topicFrame.likesBaseFrame;
-    
-    self.triangleLayer.path = _topicFrame.trianglePath;
-    //释放路径
-    CGPathRelease(_topicFrame.trianglePath);
-    
     self.likesLable.frame = _topicFrame.likesFrame;
+    //三角
+    self.triangleLayer.path = _topicFrame.trianglePath.CGPath;
+
+ 
 }
 
 - (void)setTopic:(FJTopic *)topic{
