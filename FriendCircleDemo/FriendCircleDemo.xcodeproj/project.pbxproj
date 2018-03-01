@@ -37,6 +37,8 @@
 		FA3A251B2022F0A700B146C0 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A25142022F0A600B146C0 /* SDBrowserImageView.m */; };
 		FA3A251C2022F0A700B146C0 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A25182022F0A600B146C0 /* SDWaitingView.m */; };
 		FA3A251D2022F0A700B146C0 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3A25192022F0A600B146C0 /* SDPhotoBrowser.m */; };
+		FA3C597D2047C21900D9168A /* FJProgressHUDInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3C59782047C21800D9168A /* FJProgressHUDInfo.m */; };
+		FA3C597E2047C21900D9168A /* FJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3C597B2047C21900D9168A /* FJProgressHUD.m */; };
 		FA59E363201C51EE00613B8F /* FJRegularExpressionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */; };
 		FA59E366201CC14800613B8F /* UIBarButtonItem+EXtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E365201CC14800613B8F /* UIBarButtonItem+EXtension.m */; };
 		FA59E369201CC43F00613B8F /* FJInputPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA59E368201CC43F00613B8F /* FJInputPanelView.m */; };
@@ -128,6 +130,11 @@
 		FA3A25182022F0A600B146C0 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		FA3A25192022F0A600B146C0 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
 		FA3A251A2022F0A600B146C0 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		FA3C59782047C21800D9168A /* FJProgressHUDInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJProgressHUDInfo.m; sourceTree = "<group>"; };
+		FA3C59792047C21800D9168A /* FJProgressHUDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJProgressHUDConfig.h; sourceTree = "<group>"; };
+		FA3C597A2047C21800D9168A /* FJProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJProgressHUD.h; sourceTree = "<group>"; };
+		FA3C597B2047C21900D9168A /* FJProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FJProgressHUD.m; sourceTree = "<group>"; };
+		FA3C597C2047C21900D9168A /* FJProgressHUDInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FJProgressHUDInfo.h; sourceTree = "<group>"; };
 		FA59E361201C51EE00613B8F /* FJRegularExpressionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FJRegularExpressionManager.h; sourceTree = "<group>"; };
 		FA59E362201C51EE00613B8F /* FJRegularExpressionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FJRegularExpressionManager.m; sourceTree = "<group>"; };
 		FA59E364201CC14800613B8F /* UIBarButtonItem+EXtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+EXtension.h"; sourceTree = "<group>"; };
@@ -371,6 +378,7 @@
 		FA3A25122022F08200B146C0 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				FA3C59772047C20000D9168A /* FJProgressHUD */,
 				FA3A25132022F08B00B146C0 /* SDPhotoBrowser */,
 			);
 			path = Vender;
@@ -388,6 +396,18 @@
 				FA3A25182022F0A600B146C0 /* SDWaitingView.m */,
 			);
 			path = SDPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		FA3C59772047C20000D9168A /* FJProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				FA3C597A2047C21800D9168A /* FJProgressHUD.h */,
+				FA3C597B2047C21900D9168A /* FJProgressHUD.m */,
+				FA3C59792047C21800D9168A /* FJProgressHUDConfig.h */,
+				FA3C597C2047C21900D9168A /* FJProgressHUDInfo.h */,
+				FA3C59782047C21800D9168A /* FJProgressHUDInfo.m */,
+			);
+			path = FJProgressHUD;
 			sourceTree = "<group>";
 		};
 		FA59E360201C519600613B8F /* Manager */ = {
@@ -708,6 +728,7 @@
 				FA1358992015DA5B00554F5A /* ViewController.m in Sources */,
 				FA1358FB2018790F00554F5A /* NSObject+FJRandom.m in Sources */,
 				FA1358D820171D7A00554F5A /* FJUser.m in Sources */,
+				FA3C597E2047C21900D9168A /* FJProgressHUD.m in Sources */,
 				FA3A251B2022F0A700B146C0 /* SDBrowserImageView.m in Sources */,
 				FA1358A42015DA5B00554F5A /* main.m in Sources */,
 				FA3A250F2022CB8C00B146C0 /* FJTopicPicsView.m in Sources */,
@@ -728,6 +749,7 @@
 				FA59E366201CC14800613B8F /* UIBarButtonItem+EXtension.m in Sources */,
 				FA59E363201C51EE00613B8F /* FJRegularExpressionManager.m in Sources */,
 				FA1358D220171D4A00554F5A /* FJComment.m in Sources */,
+				FA3C597D2047C21900D9168A /* FJProgressHUDInfo.m in Sources */,
 				FA3A251C2022F0A700B146C0 /* SDWaitingView.m in Sources */,
 				FA1358DB20171D9900554F5A /* FJTopicFrame.m in Sources */,
 				FA59E36D201DB86700613B8F /* FJLine.m in Sources */,

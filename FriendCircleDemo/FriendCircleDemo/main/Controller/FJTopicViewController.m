@@ -16,6 +16,7 @@
 #import "FJCommentFrame.h"
 #import "FJInputPanelView.h"
 #import "FJCommentReplyManager.h"
+#import "FJProgressHUD.h"
 
 @interface FJTopicViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,FJTopicHeaderViewDelegate,FJCommentCellDelegate,FJInputPanelViewDelegate>
 
@@ -136,7 +137,7 @@
 }
 
 - (void)rightBarButtonItemClicked{
-    NSLog(@"发表说说!!!!!!!!");
+    NSLog(@"发表!!!!!!!!");
     //演示
     NSDate *date = [NSDate date];
     NSTimeInterval t = date.timeIntervalSince1970;
@@ -207,13 +208,14 @@
  点击头像
  */
 - (void)topicHeaderViewAvatarDidClicked:(FJTopicHeaderView *)topicHeaderView{
+    [FJProgressHUD showOnlyText:topicHeaderView.topic.user.avatarUrl toView:self.view];
     NSLog(@"%@",topicHeaderView.topic.user.avatarUrl);
 }
 /**
  点击更多
  */
 - (void)topicHeaderViewMoreClicked:(FJTopicHeaderView *)topicHeaderView{
-    
+    [FJProgressHUD showOnlyText:@"更多" toView:self.view];
 }
 /**
  点击喜欢
@@ -259,6 +261,7 @@
  */
 - (void)topicHeaderViewNickNameDidClicked:(FJUser *)user{
     NSLog(@"%@",user.nickname);
+    [FJProgressHUD showOnlyText:user.nickname toView:self.view];
     
 }
 /**
@@ -293,6 +296,7 @@
         [self.inputPanelView.textView resignFirstResponder];
     }else{
          NSLog(@"查看详情!!!!!!!!");
+        [FJProgressHUD showOnlyText:@"查看详情" toView:self.view];
     }
 }
 /**
@@ -300,12 +304,14 @@
  */
 - (void)topicHeaderViewMobileOrWebClicked:(NSString *)text{
     NSLog(@"%@",text);
+    [FJProgressHUD showOnlyText:text toView:self.view];
 }
 /**
  评论用户点击
  */
 - (void)commentCellUserClicked:(FJUser *)user{
     NSLog(@"%@",user.nickname);
+    [FJProgressHUD showOnlyText:user.nickname toView:self.view];
     
 }
 /**
@@ -313,6 +319,7 @@
  */
 - (void)commentCellMobileOrWebClicked:(NSString *)text{
     NSLog(@"%@",text);
+    [FJProgressHUD showOnlyText:text toView:self.view];
 }
 
 
@@ -369,6 +376,7 @@
     
     if ([topic.comment.fromUser.userId isEqualToString:[FJUserManager sharedManager].userId]) {
         NSLog(@"删除自己的评论!!!!!!!");
+        [FJProgressHUD showOnlyText:@"删除自己的评论!!!!!!!" toView:self.view];
         return;
     }
 
@@ -414,7 +422,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     FJTopicFrame *topicFrame = self.topicFrameArray[indexPath.section];
-    NSLog(@"%ld------%ld",indexPath.row,topicFrame.commentFrameArray.count);
     topicFrame.commentFrame = topicFrame.commentFrameArray[indexPath.row];
     return topicFrame.commentFrame.cellHeight;
 }
