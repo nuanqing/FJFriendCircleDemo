@@ -20,4 +20,6 @@
 -----
 主体分为三部分：头视图，tableViewCell，脚视图，发表的内容为头视图部分，评论内容为单个cell，这样能够进行tableView的复用，避免计算上的麻烦，没有使用tableView预估高度处理，而是通过手动计算，更加精确，同时避免tableView reloadData 时耗费更多时长计算cell高度
 
+可供参考学习使用
+
 
